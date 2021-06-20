@@ -9,7 +9,8 @@ import (
 	"fmt"
 	"os"
 
-	color "github.com/ttkzw/go-color"
+	"github.com/mattn/go-colorable"
+	"github.com/ttkzw/go-color"
 )
 
 const defaultColorName = "Reset"
@@ -46,11 +47,13 @@ func run(colorName string, str string, noTrailingLineBreak bool) error {
 		return err
 	}
 
+	var output = colorable.NewColorableStdout()
+
 	s := c.Colorize(str)
 	if noTrailingLineBreak {
-		fmt.Print(s)
+		fmt.Fprint(output, s)
 	} else {
-		fmt.Println(s)
+		fmt.Fprintln(output, s)
 	}
 	return nil
 }
