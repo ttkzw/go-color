@@ -23,7 +23,7 @@ test:
 
 .PHONY: tag
 tag:
-	scripts/bumpup.sh
+	sh scripts/bumpup.sh
 
 .PHONY: tables
 tables:
