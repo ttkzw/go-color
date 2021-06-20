@@ -136,7 +136,7 @@ cat <<EOT > ${DOC_FILE}
 EOT
 
 awk -F, '{
-    printf("- <span style=\"color:%s;\">%s</span>\n", $2, $1);
+    printf("- <span style=\"color:%s;\">System%s</span>\n", $2, $1);
 }' < ${SYSTEM_COLOR_FILE} >> ${DOC_FILE}
 
 cat <<EOT >> ${DOC_FILE}

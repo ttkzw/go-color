@@ -33,22 +33,22 @@ func main() {
 
 ### System Colors
 
-- <span style="color:#000000;">Black</span>
-- <span style="color:#AA0000;">Red</span>
-- <span style="color:#00AA00;">Green</span>
-- <span style="color:#AAAA00;">Yellow</span>
-- <span style="color:#0000AA;">Blue</span>
-- <span style="color:#AA00AA;">Magenta</span>
-- <span style="color:#00AAAA;">Cyan</span>
-- <span style="color:#AAAAAA;">White</span>
-- <span style="color:#555555;">BrightBlack</span>
-- <span style="color:#FF5555;">BrightRed</span>
-- <span style="color:#55AA55;">BrightGreen</span>
-- <span style="color:#FFFF55;">BrightYellow</span>
-- <span style="color:#5555FF;">BrightBlue</span>
-- <span style="color:#FF55FF;">BrightMagenta</span>
-- <span style="color:#55FFFF;">BrightCyan</span>
-- <span style="color:#FFFFFF;">BrightWhite</span>
+- <span style="color:#000000;">SystemBlack</span>
+- <span style="color:#AA0000;">SystemRed</span>
+- <span style="color:#00AA00;">SystemGreen</span>
+- <span style="color:#AAAA00;">SystemYellow</span>
+- <span style="color:#0000AA;">SystemBlue</span>
+- <span style="color:#AA00AA;">SystemMagenta</span>
+- <span style="color:#00AAAA;">SystemCyan</span>
+- <span style="color:#AAAAAA;">SystemWhite</span>
+- <span style="color:#555555;">SystemBrightBlack</span>
+- <span style="color:#FF5555;">SystemBrightRed</span>
+- <span style="color:#55AA55;">SystemBrightGreen</span>
+- <span style="color:#FFFF55;">SystemBrightYellow</span>
+- <span style="color:#5555FF;">SystemBrightBlue</span>
+- <span style="color:#FF55FF;">SystemBrightMagenta</span>
+- <span style="color:#55FFFF;">SystemBrightCyan</span>
+- <span style="color:#FFFFFF;">SystemBrightWhite</span>
 
 ### Colors
 
