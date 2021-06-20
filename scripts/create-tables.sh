@@ -133,17 +133,28 @@ EOT
 cat <<EOT > ${DOC_FILE}
 ### System Colors
 
+<table>
+<tbody>
 EOT
 
 awk -F, '{
-    printf("- %s `%s`\n", $1, $2);
+    printf("<tr><td>%s</td><td><span style=\"color:%s;\">■</td></tr>\n", $1, $2);
 }' < ${SYSTEM_COLOR_FILE} >> ${DOC_FILE}
 
 cat <<EOT >> ${DOC_FILE}
+</tbody>
+</table>
 
 ### Colors
 
+<table>
+<tbody>
 EOT
 awk -F, '{
-    printf("- %s `%s`\n", $1, $4);
+    printf("<tr><td>%s</td><td><span style=\"color:%s;\">■</td></tr>\n", $1, $4);
 }' < ${COLOR_FILE} >> ${DOC_FILE}
+
+cat <<EOT >> ${DOC_FILE}
+</tbody>
+</table>
+EOT
