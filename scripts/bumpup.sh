@@ -11,5 +11,5 @@ version=v$(gobump show -r)
 git commit -m "Release ${version}"
 git tag -a ${version} -m "Release ${version}"
 git push origin ${version}
-git push origin master
+#git push origin master
 exit
