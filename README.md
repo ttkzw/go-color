@@ -35,22 +35,22 @@ func main() {
 
 <table>
 <tbody>
-<tr><td>Black #000000</td></tr>
-<tr><td>Red #AA0000</td></tr>
-<tr><td>Green #00AA00</td></tr>
-<tr><td>Yellow #AAAA00</td></tr>
-<tr><td>Blue #0000AA</td></tr>
-<tr><td>Magenta #AA00AA</td></tr>
-<tr><td>Cyan #00AAAA</td></tr>
-<tr><td>White #AAAAAA</td></tr>
-<tr><td>BrightBlack #555555</td></tr>
-<tr><td>BrightRed #FF5555</td></tr>
-<tr><td>BrightGreen #55AA55</td></tr>
-<tr><td>BrightYellow #FFFF55</td></tr>
-<tr><td>BrightBlue #5555FF</td></tr>
-<tr><td>BrightMagenta #FF55FF</td></tr>
-<tr><td>BrightCyan #55FFFF</td></tr>
-<tr><td>BrightWhite #FFFFFF</td></tr>
+<tr><td>Black</td><td>`#000000`</td></tr>
+<tr><td>Red</td><td>`#AA0000`</td></tr>
+<tr><td>Green</td><td>`#00AA00`</td></tr>
+<tr><td>Yellow</td><td>`#AAAA00`</td></tr>
+<tr><td>Blue</td><td>`#0000AA`</td></tr>
+<tr><td>Magenta</td><td>`#AA00AA`</td></tr>
+<tr><td>Cyan</td><td>`#00AAAA`</td></tr>
+<tr><td>White</td><td>`#AAAAAA`</td></tr>
+<tr><td>BrightBlack</td><td>`#555555`</td></tr>
+<tr><td>BrightRed</td><td>`#FF5555`</td></tr>
+<tr><td>BrightGreen</td><td>`#55AA55`</td></tr>
+<tr><td>BrightYellow</td><td>`#FFFF55`</td></tr>
+<tr><td>BrightBlue</td><td>`#5555FF`</td></tr>
+<tr><td>BrightMagenta</td><td>`#FF55FF`</td></tr>
+<tr><td>BrightCyan</td><td>`#55FFFF`</td></tr>
+<tr><td>BrightWhite</td><td>`#FFFFFF`</td></tr>
 </tbody>
 </table>
 
@@ -58,21 +58,21 @@ func main() {
 
 <table>
 <tbody>
-<tr><td>Red #FF0000</td></tr>
-<tr><td>Orange #FF8700</td></tr>
-<tr><td>Yellow #FFFF00</td></tr>
-<tr><td>Chartreuse #87FF00</td></tr>
-<tr><td>Green #00FF00</td></tr>
-<tr><td>SpringGreen #00FF87</td></tr>
-<tr><td>Cyan #00FFFF</td></tr>
-<tr><td>Azure #0087FF</td></tr>
-<tr><td>Blue #0000FF</td></tr>
-<tr><td>Violet #8700FF</td></tr>
-<tr><td>Magenta #FF00FF</td></tr>
-<tr><td>Rose #FF0087</td></tr>
-<tr><td>White #FFFFFF</td></tr>
-<tr><td>Grey #808080</td></tr>
-<tr><td>Black #000000</td></tr>
+<tr><td>Red</td><td>`#FF0000`</td></tr>
+<tr><td>Orange</td><td>`#FF8700`</td></tr>
+<tr><td>Yellow</td><td>`#FFFF00`</td></tr>
+<tr><td>Chartreuse</td><td>`#87FF00`</td></tr>
+<tr><td>Green</td><td>`#00FF00`</td></tr>
+<tr><td>SpringGreen</td><td>`#00FF87`</td></tr>
+<tr><td>Cyan</td><td>`#00FFFF`</td></tr>
+<tr><td>Azure</td><td>`#0087FF`</td></tr>
+<tr><td>Blue</td><td>`#0000FF`</td></tr>
+<tr><td>Violet</td><td>`#8700FF`</td></tr>
+<tr><td>Magenta</td><td>`#FF00FF`</td></tr>
+<tr><td>Rose</td><td>`#FF0087`</td></tr>
+<tr><td>White</td><td>`#FFFFFF`</td></tr>
+<tr><td>Grey</td><td>`#808080`</td></tr>
+<tr><td>Black</td><td>`#000000`</td></tr>
 </tbody>
 </table>
 

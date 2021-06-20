@@ -138,7 +138,7 @@ cat <<EOT > ${DOC_FILE}
 EOT
 
 awk -F, '{
-    printf("<tr><td>%s %s</td></tr>\n", $1, $2);
+    printf("<tr><td>%s</td><td>`%s`</td></tr>\n", $1, $2);
 }' < ${SYSTEM_COLOR_FILE} >> ${DOC_FILE}
 
 cat <<EOT >> ${DOC_FILE}
@@ -151,7 +151,7 @@ cat <<EOT >> ${DOC_FILE}
 <tbody>
 EOT
 awk -F, '{
-    printf("<tr><td>%s %s</td></tr>\n", $1, $4);
+    printf("<tr><td>%s</td><td>`%s`</td></tr>\n", $1, $4);
 }' < ${COLOR_FILE} >> ${DOC_FILE}
 
 cat <<EOT >> ${DOC_FILE}
