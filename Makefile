@@ -21,6 +21,10 @@ clean:
 test:
 	go test -v .
 
+.PHONY: tag
+tag:
+	scripts/bumpup.sh
+
 .PHONY: tables
 tables:
 	sh scripts/create-tables.sh
