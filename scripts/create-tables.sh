@@ -131,8 +131,6 @@ EOT
 #############################################################################
 
 cat <<EOT > ${DOC_FILE}
-<style>.color{display:inline-block;min-width:1.25em;height:1.25em;line-height:1.25;margin:1px 0;text-align:center;border:1px solid black;background-color:transparent;}</style>
-
 ### System Colors
 
 <table>
@@ -140,7 +138,7 @@ cat <<EOT > ${DOC_FILE}
 EOT
 
 awk -F, '{
-    printf("<tr><td><span class=\"color\" style=\"background-color: %s;\">&nbsp;</span>&nbsp;%s</td></tr>\n", $2, $1);
+    printf("<tr><td>%s %s</td></tr>\n", $1, $2);
 }' < ${SYSTEM_COLOR_FILE} >> ${DOC_FILE}
 
 cat <<EOT >> ${DOC_FILE}
@@ -153,7 +151,7 @@ cat <<EOT >> ${DOC_FILE}
 <tbody>
 EOT
 awk -F, '{
-    printf("<tr><td><span class=\"color\" style=\"background-color: %s;\">&nbsp;</span>&nbsp;%s</td></tr>\n", $4, $1);
+    printf("<tr><td>%s %s</td></tr>\n", $1, $4);
 }' < ${COLOR_FILE} >> ${DOC_FILE}
 
 cat <<EOT >> ${DOC_FILE}

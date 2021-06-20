@@ -31,28 +31,26 @@ func main() {
 
 ## Supported colors
 
-<style>.color{display:inline-block;min-width:1.25em;height:1.25em;line-height:1.25;margin:1px 0;text-align:center;border:1px solid black;background-color:transparent;}</style>
-
 ### System Colors
 
 <table>
 <tbody>
-<tr><td><span class="color" style="background-color: #000000;">&nbsp;</span>&nbsp;Black</td></tr>
-<tr><td><span class="color" style="background-color: #AA0000;">&nbsp;</span>&nbsp;Red</td></tr>
-<tr><td><span class="color" style="background-color: #00AA00;">&nbsp;</span>&nbsp;Green</td></tr>
-<tr><td><span class="color" style="background-color: #AAAA00;">&nbsp;</span>&nbsp;Yellow</td></tr>
-<tr><td><span class="color" style="background-color: #0000AA;">&nbsp;</span>&nbsp;Blue</td></tr>
-<tr><td><span class="color" style="background-color: #AA00AA;">&nbsp;</span>&nbsp;Magenta</td></tr>
-<tr><td><span class="color" style="background-color: #00AAAA;">&nbsp;</span>&nbsp;Cyan</td></tr>
-<tr><td><span class="color" style="background-color: #AAAAAA;">&nbsp;</span>&nbsp;White</td></tr>
-<tr><td><span class="color" style="background-color: #555555;">&nbsp;</span>&nbsp;BrightBlack</td></tr>
-<tr><td><span class="color" style="background-color: #FF5555;">&nbsp;</span>&nbsp;BrightRed</td></tr>
-<tr><td><span class="color" style="background-color: #55AA55;">&nbsp;</span>&nbsp;BrightGreen</td></tr>
-<tr><td><span class="color" style="background-color: #FFFF55;">&nbsp;</span>&nbsp;BrightYellow</td></tr>
-<tr><td><span class="color" style="background-color: #5555FF;">&nbsp;</span>&nbsp;BrightBlue</td></tr>
-<tr><td><span class="color" style="background-color: #FF55FF;">&nbsp;</span>&nbsp;BrightMagenta</td></tr>
-<tr><td><span class="color" style="background-color: #55FFFF;">&nbsp;</span>&nbsp;BrightCyan</td></tr>
-<tr><td><span class="color" style="background-color: #FFFFFF;">&nbsp;</span>&nbsp;BrightWhite</td></tr>
+<tr><td>Black #000000</td></tr>
+<tr><td>Red #AA0000</td></tr>
+<tr><td>Green #00AA00</td></tr>
+<tr><td>Yellow #AAAA00</td></tr>
+<tr><td>Blue #0000AA</td></tr>
+<tr><td>Magenta #AA00AA</td></tr>
+<tr><td>Cyan #00AAAA</td></tr>
+<tr><td>White #AAAAAA</td></tr>
+<tr><td>BrightBlack #555555</td></tr>
+<tr><td>BrightRed #FF5555</td></tr>
+<tr><td>BrightGreen #55AA55</td></tr>
+<tr><td>BrightYellow #FFFF55</td></tr>
+<tr><td>BrightBlue #5555FF</td></tr>
+<tr><td>BrightMagenta #FF55FF</td></tr>
+<tr><td>BrightCyan #55FFFF</td></tr>
+<tr><td>BrightWhite #FFFFFF</td></tr>
 </tbody>
 </table>
 
@@ -60,21 +58,21 @@ func main() {
 
 <table>
 <tbody>
-<tr><td><span class="color" style="background-color: #FF0000;">&nbsp;</span>&nbsp;Red</td></tr>
-<tr><td><span class="color" style="background-color: #FF8700;">&nbsp;</span>&nbsp;Orange</td></tr>
-<tr><td><span class="color" style="background-color: #FFFF00;">&nbsp;</span>&nbsp;Yellow</td></tr>
-<tr><td><span class="color" style="background-color: #87FF00;">&nbsp;</span>&nbsp;Chartreuse</td></tr>
-<tr><td><span class="color" style="background-color: #00FF00;">&nbsp;</span>&nbsp;Green</td></tr>
-<tr><td><span class="color" style="background-color: #00FF87;">&nbsp;</span>&nbsp;SpringGreen</td></tr>
-<tr><td><span class="color" style="background-color: #00FFFF;">&nbsp;</span>&nbsp;Cyan</td></tr>
-<tr><td><span class="color" style="background-color: #0087FF;">&nbsp;</span>&nbsp;Azure</td></tr>
-<tr><td><span class="color" style="background-color: #0000FF;">&nbsp;</span>&nbsp;Blue</td></tr>
-<tr><td><span class="color" style="background-color: #8700FF;">&nbsp;</span>&nbsp;Violet</td></tr>
-<tr><td><span class="color" style="background-color: #FF00FF;">&nbsp;</span>&nbsp;Magenta</td></tr>
-<tr><td><span class="color" style="background-color: #FF0087;">&nbsp;</span>&nbsp;Rose</td></tr>
-<tr><td><span class="color" style="background-color: #FFFFFF;">&nbsp;</span>&nbsp;White</td></tr>
-<tr><td><span class="color" style="background-color: #808080;">&nbsp;</span>&nbsp;Grey</td></tr>
-<tr><td><span class="color" style="background-color: #000000;">&nbsp;</span>&nbsp;Black</td></tr>
+<tr><td>Red #FF0000</td></tr>
+<tr><td>Orange #FF8700</td></tr>
+<tr><td>Yellow #FFFF00</td></tr>
+<tr><td>Chartreuse #87FF00</td></tr>
+<tr><td>Green #00FF00</td></tr>
+<tr><td>SpringGreen #00FF87</td></tr>
+<tr><td>Cyan #00FFFF</td></tr>
+<tr><td>Azure #0087FF</td></tr>
+<tr><td>Blue #0000FF</td></tr>
+<tr><td>Violet #8700FF</td></tr>
+<tr><td>Magenta #FF00FF</td></tr>
+<tr><td>Rose #FF0087</td></tr>
+<tr><td>White #FFFFFF</td></tr>
+<tr><td>Grey #808080</td></tr>
+<tr><td>Black #000000</td></tr>
 </tbody>
 </table>
 
