@@ -33,48 +33,40 @@ func main() {
 
 ### System Colors
 
-<table>
-<tbody>
-<tr><td>Black</td><td><span style="color:#000000;">■</td></tr>
-<tr><td>Red</td><td><span style="color:#AA0000;">■</td></tr>
-<tr><td>Green</td><td><span style="color:#00AA00;">■</td></tr>
-<tr><td>Yellow</td><td><span style="color:#AAAA00;">■</td></tr>
-<tr><td>Blue</td><td><span style="color:#0000AA;">■</td></tr>
-<tr><td>Magenta</td><td><span style="color:#AA00AA;">■</td></tr>
-<tr><td>Cyan</td><td><span style="color:#00AAAA;">■</td></tr>
-<tr><td>White</td><td><span style="color:#AAAAAA;">■</td></tr>
-<tr><td>BrightBlack</td><td><span style="color:#555555;">■</td></tr>
-<tr><td>BrightRed</td><td><span style="color:#FF5555;">■</td></tr>
-<tr><td>BrightGreen</td><td><span style="color:#55AA55;">■</td></tr>
-<tr><td>BrightYellow</td><td><span style="color:#FFFF55;">■</td></tr>
-<tr><td>BrightBlue</td><td><span style="color:#5555FF;">■</td></tr>
-<tr><td>BrightMagenta</td><td><span style="color:#FF55FF;">■</td></tr>
-<tr><td>BrightCyan</td><td><span style="color:#55FFFF;">■</td></tr>
-<tr><td>BrightWhite</td><td><span style="color:#FFFFFF;">■</td></tr>
-</tbody>
-</table>
+- <span style="color:#000000;">Black</span>
+- <span style="color:#AA0000;">Red</span>
+- <span style="color:#00AA00;">Green</span>
+- <span style="color:#AAAA00;">Yellow</span>
+- <span style="color:#0000AA;">Blue</span>
+- <span style="color:#AA00AA;">Magenta</span>
+- <span style="color:#00AAAA;">Cyan</span>
+- <span style="color:#AAAAAA;">White</span>
+- <span style="color:#555555;">BrightBlack</span>
+- <span style="color:#FF5555;">BrightRed</span>
+- <span style="color:#55AA55;">BrightGreen</span>
+- <span style="color:#FFFF55;">BrightYellow</span>
+- <span style="color:#5555FF;">BrightBlue</span>
+- <span style="color:#FF55FF;">BrightMagenta</span>
+- <span style="color:#55FFFF;">BrightCyan</span>
+- <span style="color:#FFFFFF;">BrightWhite</span>
 
 ### Colors
 
-<table>
-<tbody>
-<tr><td>Red</td><td><span style="color:#FF0000;">■</td></tr>
-<tr><td>Orange</td><td><span style="color:#FF8700;">■</td></tr>
-<tr><td>Yellow</td><td><span style="color:#FFFF00;">■</td></tr>
-<tr><td>Chartreuse</td><td><span style="color:#87FF00;">■</td></tr>
-<tr><td>Green</td><td><span style="color:#00FF00;">■</td></tr>
-<tr><td>SpringGreen</td><td><span style="color:#00FF87;">■</td></tr>
-<tr><td>Cyan</td><td><span style="color:#00FFFF;">■</td></tr>
-<tr><td>Azure</td><td><span style="color:#0087FF;">■</td></tr>
-<tr><td>Blue</td><td><span style="color:#0000FF;">■</td></tr>
-<tr><td>Violet</td><td><span style="color:#8700FF;">■</td></tr>
-<tr><td>Magenta</td><td><span style="color:#FF00FF;">■</td></tr>
-<tr><td>Rose</td><td><span style="color:#FF0087;">■</td></tr>
-<tr><td>White</td><td><span style="color:#FFFFFF;">■</td></tr>
-<tr><td>Grey</td><td><span style="color:#808080;">■</td></tr>
-<tr><td>Black</td><td><span style="color:#000000;">■</td></tr>
-</tbody>
-</table>
+- <span style="color:#FF0000;">Red</span>
+- <span style="color:#FF8700;">Orange</span>
+- <span style="color:#FFFF00;">Yellow</span>
+- <span style="color:#87FF00;">Chartreuse</span>
+- <span style="color:#00FF00;">Green</span>
+- <span style="color:#00FF87;">SpringGreen</span>
+- <span style="color:#00FFFF;">Cyan</span>
+- <span style="color:#0087FF;">Azure</span>
+- <span style="color:#0000FF;">Blue</span>
+- <span style="color:#8700FF;">Violet</span>
+- <span style="color:#FF00FF;">Magenta</span>
+- <span style="color:#FF0087;">Rose</span>
+- <span style="color:#FFFFFF;">White</span>
+- <span style="color:#808080;">Grey</span>
+- <span style="color:#000000;">Black</span>
 
 ## Installation
 
