@@ -1,36 +1,3 @@
-# go-color
-
-This is a Go library for colorizing strings.
-
-## Usage
-
-```go
-package main
-
-import (
-	"github.com/ttkzw/go-color"
-)
-
-func main() {
-    c, _ := color.NewColor("Green")
-    fmt.Println(c.Colorize("OK"))
-}
-```
-
-```go
-package main
-
-import (
-	"github.com/ttkzw/go-color"
-)
-
-func main() {
-    fmt.Println(c.Green.Colorize("OK"))
-}
-```
-
-## Supported colors
-
 <style>.color{display:inline-block;min-width:1.25em;height:1.25em;line-height:1.25;margin:1px 0;text-align:center;border:1px solid black;background-color:transparent;}</style>
 
 ### System Colors
@@ -77,18 +44,3 @@ func main() {
 <tr><td><span class="color" style="background-color: #000000;">&nbsp;</span>&nbsp;Black</td></tr>
 </tbody>
 </table>
-
-## Installation
-
-```sh
-$ go get github.com/ttkzw/go-color
-```
-
-
-## License
-
-BSD 3-Clause License
-
-## Auther
-
-Takashi Takizawa

@@ -1,0 +1,16 @@
+Black,#000000,30
+Red,#AA0000,31
+Green,#00AA00,32
+Yellow,#AAAA00,33
+Blue,#0000AA,34
+Magenta,#AA00AA,35
+Cyan,#00AAAA,36
+White,#AAAAAA,37
+BrightBlack,#555555,90
+BrightRed,#FF5555,91
+BrightGreen,#55AA55,92
+BrightYellow,#FFFF55,93
+BrightBlue,#5555FF,94
+BrightMagenta,#FF55FF,95
+BrightCyan,#55FFFF,96
+BrightWhite,#FFFFFF,97
