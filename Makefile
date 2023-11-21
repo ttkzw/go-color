@@ -11,11 +11,11 @@ tables:
 
 .PHONY: build
 build: deps
-	go build -o color cmd/color/color.go
+	go build -o color cmd/color/main.go
 
 .PHONY: install
 install: deps
-	go install cmd/color/color.go
+	go install cmd/color/main.go
 
 .PHONY: clean
 clean:
