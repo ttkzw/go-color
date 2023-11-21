@@ -19,18 +19,23 @@ var (
 	colorName           string
 	str                 string
 	noTrailingLineBreak bool
+	listColors          bool
 )
 
 func main() {
 	flag.Parse()
 
-	if colorName == "" {
-		colorName = defaultColorName
-	}
+	if listColors {
+		list()
+	} else {
+		if colorName == "" {
+			colorName = defaultColorName
+		}
 
-	if err := run(colorName, str, noTrailingLineBreak); err != nil {
-		fmt.Printf("Error: %v\n", err)
-		os.Exit(1)
+		if err := run(colorName, str, noTrailingLineBreak); err != nil {
+			fmt.Printf("Error: %v\n", err)
+			os.Exit(1)
+		}
 	}
 	os.Exit(0)
 }
@@ -39,6 +44,7 @@ func init() {
 	flag.BoolVar(&noTrailingLineBreak, "n", false, "Do not print the trailing newline character.")
 	flag.StringVar(&colorName, "c", "", "color name.")
 	flag.StringVar(&str, "s", "", "string")
+	flag.BoolVar(&listColors, "l", false, "Displays a list of supported colors.")
 }
 
 func run(colorName string, str string, noTrailingLineBreak bool) error {
@@ -56,4 +62,12 @@ func run(colorName string, str string, noTrailingLineBreak bool) error {
 		fmt.Fprintln(output, s)
 	}
 	return nil
+}
+
+func list() {
+	colors := color.AllColors()
+	for _, c := range colors {
+		s := c.Colorize(c.String())
+		fmt.Printf("%s\n", s)
+	}
 }
