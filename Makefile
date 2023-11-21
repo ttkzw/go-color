@@ -3,7 +3,7 @@ all: build
 
 .PHONY: deps
 deps:
-	go get -v -d
+	go get .
 
 .PHONY: build
 build: deps
@@ -19,7 +19,7 @@ clean:
 
 .PHONY: test
 test:
-	go test -v .
+	go test -v ./...
 
 .PHONY: tag
 tag:
