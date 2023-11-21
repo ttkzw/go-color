@@ -65,7 +65,7 @@ func run(colorName string, str string, noTrailingLineBreak bool) error {
 }
 
 func list() {
-	colors := color.AllColors()
+	colors := color.SupportedColors()
 	for _, c := range colors {
 		s := c.Colorize(c.String())
 		fmt.Printf("%s\n", s)
