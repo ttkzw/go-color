@@ -56,7 +56,7 @@ func (c Color) Colorize(str string) string {
 	return fmt.Sprintf("%s%s%s", c.escapeSequence(), str, Default.escapeSequence())
 }
 
-func AllColors() []Color {
+func SupportedColors() []Color {
 	var colors []Color
 	for _, name := range colorNames {
 		c, _ := NewColor(name)
