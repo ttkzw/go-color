@@ -53,11 +53,12 @@ jobs:
 
       - name: Archive
         run: |
-          if [[ ${{ matrix.goos }} != "windows" ]]; then zip color-${{ matrix.goos }}-${{ matrix.arch }}.zip color; fi
-          if [[ ${{ matrix.goos }} == "windows" ]]; then zip color-${{ matrix.goos }}-${{ matrix.arch }}.zip color.exe; fi
+          if [[ ${{ matrix.goos }} != "windows" ]]; then zip color-${{ matrix.goos }}-${{ matrix.arch }}.zip color; tar -cJf color-${{ matrix.goos }}-${{ matrix.arch }}.tar.xz color; fi
+          if [[ ${{ matrix.goos }} == "windows" ]]; then zip color-${{ matrix.goos }}-${{ matrix.arch }}.zip color.exe; tar -cJf color-${{ matrix.goos }}-${{ matrix.arch }}.tar.xz color.exe; fi
 
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
             files: |
                 color-${{ matrix.goos }}-${{ matrix.arch }}.zip
+                color-${{ matrix.goos }}-${{ matrix.arch }}.tar.xz
