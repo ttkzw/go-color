@@ -5,6 +5,10 @@ all: build
 deps:
 	go get .
 
+.PHONY: tables
+tables:
+	go generate .
+
 .PHONY: build
 build: deps
 	go build -o color cmd/color/color.go
@@ -25,6 +29,3 @@ test:
 tag:
 	sh scripts/bumpup.sh
 
-.PHONY: tables
-tables:
-	sh scripts/create-tables.sh
