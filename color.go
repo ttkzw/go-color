@@ -15,7 +15,7 @@ import (
 	"github.com/mattn/go-isatty"
 )
 
-const Version = "0.1.4"
+const Version = "0.1.5"
 
 var terminalDetection = true
 
