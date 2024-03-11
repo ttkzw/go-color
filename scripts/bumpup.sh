@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if gobump up -w; then
+if ! gobump up -w; then
   echo "Aborted"
   exit
 fi
