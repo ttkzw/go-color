@@ -56,6 +56,43 @@ func (c Color) Colorize(str string) string {
 	return fmt.Sprintf("%s%s%s", c.escapeSequence(), str, Default.escapeSequence())
 }
 
+// BackgroundColor is a background color for output.
+type BackgroundColor int
+
+// NewBackgroundColor creates the BackgroundColor.
+func NewBackgroundColor(name string) (BackgroundColor, error) {
+	for i, v := range backgroundColorNames {
+		if strings.EqualFold(v, name) {
+			return BackgroundColor(i), nil
+		}
+	}
+	return 0, fmt.Errorf("unknown color name: %s", name)
+}
+
+// String returns the name of the color.
+func (c BackgroundColor) String() string {
+	return backgroundColorNames[c]
+}
+
+func (c BackgroundColor) escapeSequence() string {
+	if 0 <= c && int(c) < len(backgroundColorEscapeSequences) {
+		return backgroundColorEscapeSequences[c]
+	}
+	return backgroundColorEscapeSequences[0]
+}
+
+// Colorize colorizes the string.
+func (c BackgroundColor) Colorize(str string) string {
+	isTerminal := true
+	if terminalDetection {
+		isTerminal = isatty.IsTerminal(os.Stdout.Fd())
+	}
+	if !isTerminal {
+		return str
+	}
+	return fmt.Sprintf("%s%s%s", c.escapeSequence(), str, DefaultBackground.escapeSequence())
+}
+
 func SupportedColors() []Color {
 	var colors []Color
 	for _, name := range colorNames {

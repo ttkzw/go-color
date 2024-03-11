@@ -13,10 +13,9 @@ import (
 	"github.com/ttkzw/go-color"
 )
 
-const defaultColorName = "Reset"
-
 var (
 	colorName           string
+	backgroundColorName string
 	str                 string
 	noTrailingLineBreak bool
 	listColors          bool
@@ -28,11 +27,7 @@ func main() {
 	if listColors {
 		list()
 	} else {
-		if colorName == "" {
-			colorName = defaultColorName
-		}
-
-		if err := run(colorName, str, noTrailingLineBreak); err != nil {
+		if err := run(colorName, backgroundColorName, str, noTrailingLineBreak); err != nil {
 			fmt.Printf("Error: %v\n", err)
 			os.Exit(1)
 		}
@@ -43,19 +38,33 @@ func main() {
 func init() {
 	flag.BoolVar(&noTrailingLineBreak, "n", false, "Do not print the trailing newline character.")
 	flag.StringVar(&colorName, "c", "", "color name.")
+	flag.StringVar(&backgroundColorName, "b", "", "background color name.")
 	flag.StringVar(&str, "s", "", "string")
 	flag.BoolVar(&listColors, "l", false, "Displays a list of supported colors.")
 }
 
-func run(colorName string, str string, noTrailingLineBreak bool) error {
-	c, err := color.NewColor(colorName)
-	if err != nil {
-		return err
+func run(colorName, backgroundColorName, str string, noTrailingLineBreak bool) error {
+	var s string
+
+	if colorName != "" {
+		c, err := color.NewColor(colorName)
+		if err != nil {
+			return err
+		}
+		s = c.Colorize(str)
+	} else {
+		s = str
+	}
+
+	if backgroundColorName != "" {
+		b, err := color.NewBackgroundColor(backgroundColorName)
+		if err != nil {
+			return err
+		}
+		s = b.Colorize(s)
 	}
 
 	var output = colorable.NewColorableStdout()
-
-	s := c.Colorize(str)
 	if noTrailingLineBreak {
 		fmt.Fprint(output, s)
 	} else {

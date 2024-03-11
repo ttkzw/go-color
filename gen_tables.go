@@ -19,8 +19,9 @@ import (
 const dataDir = "_data"
 
 type Data struct {
-	SystemColors []Color
-	Colors       []Color
+	ForegroundSystemColors []Color
+	BackgroundSystemColors []Color
+	Colors                 []Color
 }
 
 type Color struct {
@@ -30,11 +31,13 @@ type Color struct {
 }
 
 func main() {
-	colors := readColors("color.csv")
-	systemColors := readColors("system-color.csv")
+	colors := readColors("8bit-color.csv")
+	foregroundSystemColors := readColors("foreground-system-color.csv")
+	backgroundSystemColors := readColors("background-system-color.csv")
 	data := Data{
-		Colors:       colors,
-		SystemColors: systemColors,
+		ForegroundSystemColors: foregroundSystemColors,
+		BackgroundSystemColors: backgroundSystemColors,
+		Colors:                 colors,
 	}
 	generate(data, templateCode, "tables.go")
 	generate(data, templateText, "colors.md")
@@ -52,6 +55,9 @@ func readColors(filename string) []Color {
 		log.Fatal(err)
 	}
 	for _, record := range records {
+		if len(record) == 0 {
+			continue
+		}
 		c := Color{
 			Name:             record[0],
 			HtmlHexColorCode: record[1],
@@ -94,55 +100,114 @@ package color
 
 // Color name
 const (
+	// Default foreground color
 	Default = Color(iota)
 
 	/*
-	 * 16 colors for system
+	 * system colors
 	 */
-{{range .SystemColors}}
+{{range .ForegroundSystemColors}}
 	// {{.Name}} for system color
 	System{{.Name}}
 {{end}}
 
 	/*
-	 * 256 colors
+	 * 8-bit colors
 	 */
 {{range .Colors}}
-	// {{.Name}}: HTML Hex Color Code {{.HtmlHexColorCode}}, Ansi 256-Color Code {{.AnsiColorCode}}
+	// {{.Name}}: HTML Hex Color Code {{.HtmlHexColorCode}}, Ansi 8-bit Color Code {{.AnsiColorCode}}
 	{{.Name}}
 {{end}}
 )
 
 var colorNames = []string{
+	// Default foreground color
 	"Default",
 
 	/*
-	 * 16 colors for system
+	 * system colors
 	 */
-{{range .SystemColors}}
+{{range .ForegroundSystemColors}}
 	"System{{.Name}}",{{end}}
 
 	/*
-	 * 256 colors
+	 * 8-bit colors
 	 */
 {{range .Colors}}
 	"{{.Name}}",{{end}}
 }
 
 var colorEscapeSequences = [...]string{
+	// Default foreground color
 	Default: "\x1b[39m",
 
 	/*
-	 * 16 colors for system
+	 * system colors
 	 */
-{{range .SystemColors}}
+{{range .ForegroundSystemColors}}
 	System{{.Name}}: "\x1b[{{.AnsiColorCode}}m",{{end}}
 
 	/*
-	 * 256 colors
+	 * 8-bit colors
 	 */
 {{range .Colors}}
 	{{.Name}}: "\x1b[38;5;{{.AnsiColorCode}}m",{{end}}
+}
+
+// Background Color name
+const (
+	// Default background color
+	DefaultBackground = BackgroundColor(iota)
+
+	/*
+	 * system colors
+	 */
+{{range .BackgroundSystemColors}}
+	// {{.Name}} for system background color
+	System{{.Name}}Background
+{{end}}
+
+	/*
+	 * 8-bit colors
+	 */
+{{range .Colors}}
+	// {{.Name}} for background color: HTML Hex Color Code {{.HtmlHexColorCode}}, Ansi 8-bit Color Code {{.AnsiColorCode}}
+	{{.Name}}Background
+{{end}}
+)
+
+var backgroundColorNames = []string{
+	// Default background color
+	"Default",
+
+	/*
+	 * system colors
+	 */
+{{range .BackgroundSystemColors}}
+	"System{{.Name}}",{{end}}
+
+	/*
+	 * 8-bit colors
+	 */
+{{range .Colors}}
+	"{{.Name}}",{{end}}
+}
+
+var backgroundColorEscapeSequences = [...]string{
+	// Default background color
+	DefaultBackground: "\x1b[49m",
+
+	/*
+	 * system colors
+	 */
+{{range .BackgroundSystemColors}}
+	System{{.Name}}Background: "\x1b[{{.AnsiColorCode}}m",{{end}}
+
+	/*
+	 * 8-bit colors
+	 */
+{{range .Colors}}
+	{{.Name}}Background: "\x1b[48;5;{{.AnsiColorCode}}m",{{end}}
 }
 `
 
@@ -150,7 +215,7 @@ var templateText = `
 # Supported colors
 
 ## System Colors
-{{range .SystemColors}}
+{{range .ForegroundSystemColors}}
 - <span style="color:{{.HtmlHexColorCode}};">System{{.Name}}</span>{{end}}
 
 ## Colors

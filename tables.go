@@ -8,10 +8,11 @@ package color
 
 // Color name
 const (
+	// Default foreground color
 	Default = Color(iota)
 
 	/*
-	 * 16 colors for system
+	 * system colors
 	 */
 
 	// Black for system color
@@ -63,60 +64,61 @@ const (
 	SystemBrightWhite
 
 	/*
-	 * 256 colors
+	 * 8-bit colors
 	 */
 
-	// Red: HTML Hex Color Code #FF0000, Ansi 256-Color Code 196
+	// Red: HTML Hex Color Code #FF0000, Ansi 8-bit Color Code 196
 	Red
 
-	// Orange: HTML Hex Color Code #FF8700, Ansi 256-Color Code 208
+	// Orange: HTML Hex Color Code #FF8700, Ansi 8-bit Color Code 208
 	Orange
 
-	// Yellow: HTML Hex Color Code #FFFF00, Ansi 256-Color Code 226
+	// Yellow: HTML Hex Color Code #FFFF00, Ansi 8-bit Color Code 226
 	Yellow
 
-	// Chartreuse: HTML Hex Color Code #87FF00, Ansi 256-Color Code 118
+	// Chartreuse: HTML Hex Color Code #87FF00, Ansi 8-bit Color Code 118
 	Chartreuse
 
-	// Green: HTML Hex Color Code #00FF00, Ansi 256-Color Code 46
+	// Green: HTML Hex Color Code #00FF00, Ansi 8-bit Color Code 46
 	Green
 
-	// SpringGreen: HTML Hex Color Code #00FF87, Ansi 256-Color Code 48
+	// SpringGreen: HTML Hex Color Code #00FF87, Ansi 8-bit Color Code 48
 	SpringGreen
 
-	// Cyan: HTML Hex Color Code #00FFFF, Ansi 256-Color Code 51
+	// Cyan: HTML Hex Color Code #00FFFF, Ansi 8-bit Color Code 51
 	Cyan
 
-	// Azure: HTML Hex Color Code #0087FF, Ansi 256-Color Code 195
+	// Azure: HTML Hex Color Code #0087FF, Ansi 8-bit Color Code 195
 	Azure
 
-	// Blue: HTML Hex Color Code #0000FF, Ansi 256-Color Code 21
+	// Blue: HTML Hex Color Code #0000FF, Ansi 8-bit Color Code 21
 	Blue
 
-	// Violet: HTML Hex Color Code #8700FF, Ansi 256-Color Code 93
+	// Violet: HTML Hex Color Code #8700FF, Ansi 8-bit Color Code 93
 	Violet
 
-	// Magenta: HTML Hex Color Code #FF00FF, Ansi 256-Color Code 201
+	// Magenta: HTML Hex Color Code #FF00FF, Ansi 8-bit Color Code 201
 	Magenta
 
-	// Rose: HTML Hex Color Code #FF0087, Ansi 256-Color Code 198
+	// Rose: HTML Hex Color Code #FF0087, Ansi 8-bit Color Code 198
 	Rose
 
-	// White: HTML Hex Color Code #FFFFFF, Ansi 256-Color Code 231
+	// White: HTML Hex Color Code #FFFFFF, Ansi 8-bit Color Code 231
 	White
 
-	// Grey: HTML Hex Color Code #808080, Ansi 256-Color Code 244
+	// Grey: HTML Hex Color Code #808080, Ansi 8-bit Color Code 244
 	Grey
 
-	// Black: HTML Hex Color Code #000000, Ansi 256-Color Code 16
+	// Black: HTML Hex Color Code #000000, Ansi 8-bit Color Code 16
 	Black
 )
 
 var colorNames = []string{
+	// Default foreground color
 	"Default",
 
 	/*
-	 * 16 colors for system
+	 * system colors
 	 */
 
 	"SystemBlack",
@@ -137,7 +139,7 @@ var colorNames = []string{
 	"SystemBrightWhite",
 
 	/*
-	 * 256 colors
+	 * 8-bit colors
 	 */
 
 	"Red",
@@ -158,10 +160,11 @@ var colorNames = []string{
 }
 
 var colorEscapeSequences = [...]string{
+	// Default foreground color
 	Default: "\x1b[39m",
 
 	/*
-	 * 16 colors for system
+	 * system colors
 	 */
 
 	SystemBlack:         "\x1b[30m",
@@ -182,7 +185,7 @@ var colorEscapeSequences = [...]string{
 	SystemBrightWhite:   "\x1b[97m",
 
 	/*
-	 * 256 colors
+	 * 8-bit colors
 	 */
 
 	Red:         "\x1b[38;5;196m",
@@ -200,4 +203,203 @@ var colorEscapeSequences = [...]string{
 	White:       "\x1b[38;5;231m",
 	Grey:        "\x1b[38;5;244m",
 	Black:       "\x1b[38;5;16m",
+}
+
+// Background Color name
+const (
+	// Default background color
+	DefaultBackground = BackgroundColor(iota)
+
+	/*
+	 * system colors
+	 */
+
+	// Black for system background color
+	SystemBlackBackground
+
+	// Red for system background color
+	SystemRedBackground
+
+	// Green for system background color
+	SystemGreenBackground
+
+	// Yellow for system background color
+	SystemYellowBackground
+
+	// Blue for system background color
+	SystemBlueBackground
+
+	// Magenta for system background color
+	SystemMagentaBackground
+
+	// Cyan for system background color
+	SystemCyanBackground
+
+	// White for system background color
+	SystemWhiteBackground
+
+	// BrightBlack for system background color
+	SystemBrightBlackBackground
+
+	// BrightRed for system background color
+	SystemBrightRedBackground
+
+	// BrightGreen for system background color
+	SystemBrightGreenBackground
+
+	// BrightYellow for system background color
+	SystemBrightYellowBackground
+
+	// BrightBlue for system background color
+	SystemBrightBlueBackground
+
+	// BrightMagenta for system background color
+	SystemBrightMagentaBackground
+
+	// BrightCyan for system background color
+	SystemBrightCyanBackground
+
+	// BrightWhite for system background color
+	SystemBrightWhiteBackground
+
+	/*
+	 * 8-bit colors
+	 */
+
+	// Red for background color: HTML Hex Color Code #FF0000, Ansi 8-bit Color Code 196
+	RedBackground
+
+	// Orange for background color: HTML Hex Color Code #FF8700, Ansi 8-bit Color Code 208
+	OrangeBackground
+
+	// Yellow for background color: HTML Hex Color Code #FFFF00, Ansi 8-bit Color Code 226
+	YellowBackground
+
+	// Chartreuse for background color: HTML Hex Color Code #87FF00, Ansi 8-bit Color Code 118
+	ChartreuseBackground
+
+	// Green for background color: HTML Hex Color Code #00FF00, Ansi 8-bit Color Code 46
+	GreenBackground
+
+	// SpringGreen for background color: HTML Hex Color Code #00FF87, Ansi 8-bit Color Code 48
+	SpringGreenBackground
+
+	// Cyan for background color: HTML Hex Color Code #00FFFF, Ansi 8-bit Color Code 51
+	CyanBackground
+
+	// Azure for background color: HTML Hex Color Code #0087FF, Ansi 8-bit Color Code 195
+	AzureBackground
+
+	// Blue for background color: HTML Hex Color Code #0000FF, Ansi 8-bit Color Code 21
+	BlueBackground
+
+	// Violet for background color: HTML Hex Color Code #8700FF, Ansi 8-bit Color Code 93
+	VioletBackground
+
+	// Magenta for background color: HTML Hex Color Code #FF00FF, Ansi 8-bit Color Code 201
+	MagentaBackground
+
+	// Rose for background color: HTML Hex Color Code #FF0087, Ansi 8-bit Color Code 198
+	RoseBackground
+
+	// White for background color: HTML Hex Color Code #FFFFFF, Ansi 8-bit Color Code 231
+	WhiteBackground
+
+	// Grey for background color: HTML Hex Color Code #808080, Ansi 8-bit Color Code 244
+	GreyBackground
+
+	// Black for background color: HTML Hex Color Code #000000, Ansi 8-bit Color Code 16
+	BlackBackground
+)
+
+var backgroundColorNames = []string{
+	// Default background color
+	"Default",
+
+	/*
+	 * system colors
+	 */
+
+	"SystemBlack",
+	"SystemRed",
+	"SystemGreen",
+	"SystemYellow",
+	"SystemBlue",
+	"SystemMagenta",
+	"SystemCyan",
+	"SystemWhite",
+	"SystemBrightBlack",
+	"SystemBrightRed",
+	"SystemBrightGreen",
+	"SystemBrightYellow",
+	"SystemBrightBlue",
+	"SystemBrightMagenta",
+	"SystemBrightCyan",
+	"SystemBrightWhite",
+
+	/*
+	 * 8-bit colors
+	 */
+
+	"Red",
+	"Orange",
+	"Yellow",
+	"Chartreuse",
+	"Green",
+	"SpringGreen",
+	"Cyan",
+	"Azure",
+	"Blue",
+	"Violet",
+	"Magenta",
+	"Rose",
+	"White",
+	"Grey",
+	"Black",
+}
+
+var backgroundColorEscapeSequences = [...]string{
+	// Default background color
+	DefaultBackground: "\x1b[49m",
+
+	/*
+	 * system colors
+	 */
+
+	SystemBlackBackground:         "\x1b[40m",
+	SystemRedBackground:           "\x1b[41m",
+	SystemGreenBackground:         "\x1b[42m",
+	SystemYellowBackground:        "\x1b[43m",
+	SystemBlueBackground:          "\x1b[44m",
+	SystemMagentaBackground:       "\x1b[45m",
+	SystemCyanBackground:          "\x1b[46m",
+	SystemWhiteBackground:         "\x1b[47m",
+	SystemBrightBlackBackground:   "\x1b[100m",
+	SystemBrightRedBackground:     "\x1b[101m",
+	SystemBrightGreenBackground:   "\x1b[102m",
+	SystemBrightYellowBackground:  "\x1b[103m",
+	SystemBrightBlueBackground:    "\x1b[104m",
+	SystemBrightMagentaBackground: "\x1b[105m",
+	SystemBrightCyanBackground:    "\x1b[106m",
+	SystemBrightWhiteBackground:   "\x1b[107m",
+
+	/*
+	 * 8-bit colors
+	 */
+
+	RedBackground:         "\x1b[48;5;196m",
+	OrangeBackground:      "\x1b[48;5;208m",
+	YellowBackground:      "\x1b[48;5;226m",
+	ChartreuseBackground:  "\x1b[48;5;118m",
+	GreenBackground:       "\x1b[48;5;46m",
+	SpringGreenBackground: "\x1b[48;5;48m",
+	CyanBackground:        "\x1b[48;5;51m",
+	AzureBackground:       "\x1b[48;5;195m",
+	BlueBackground:        "\x1b[48;5;21m",
+	VioletBackground:      "\x1b[48;5;93m",
+	MagentaBackground:     "\x1b[48;5;201m",
+	RoseBackground:        "\x1b[48;5;198m",
+	WhiteBackground:       "\x1b[48;5;231m",
+	GreyBackground:        "\x1b[48;5;244m",
+	BlackBackground:       "\x1b[48;5;16m",
 }
