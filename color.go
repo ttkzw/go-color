@@ -44,7 +44,7 @@ func (c Color) escapeSequence() string {
 	return colorEscapeSequences[0]
 }
 
-// Colorize colorizes the string.
+// Colorize colors the string with the foreground color.
 func (c Color) Colorize(str string) string {
 	isTerminal := true
 	if terminalDetection {
@@ -81,7 +81,7 @@ func (c BackgroundColor) escapeSequence() string {
 	return backgroundColorEscapeSequences[0]
 }
 
-// Colorize colorizes the string.
+// Colorize colors the string with the background color.
 func (c BackgroundColor) Colorize(str string) string {
 	isTerminal := true
 	if terminalDetection {
@@ -103,6 +103,21 @@ func SupportedColors() []Color {
 		colors = append(colors, c)
 	}
 	return colors
+}
+
+// ColorizeForeground colors the string with the foreground color.
+func ColorizeForeground(str string, foreground Color) string {
+	return foreground.Colorize(str)
+}
+
+// ColorizeBackground colors the string with the background color.
+func ColorizeBackground(str string, background BackgroundColor) string {
+	return background.Colorize(str)
+}
+
+// Colorize colors the string　with foreground and background colors.
+func Colorize(str string, foreground Color, background BackgroundColor) string {
+	return background.Colorize(foreground.Colorize(str))
 }
 
 // EnableTerminalDetection enables terminal detection.

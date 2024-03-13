@@ -51,42 +51,38 @@ func init() {
 	}
 }
 
+type foregroundTest struct {
+	color  color.Color
+	name   string
+	output string
+}
+
+var foregroundTests = []foregroundTest{
+	{color.SystemBrightRed, "SystemBrightRed", "\x1b[91mTEXT\x1b[39m"},
+	{color.Red, "Red", "\x1b[38;5;196mTEXT\x1b[39m"},
+	{color.Black, "Black", "\x1b[38;5;16mTEXT\x1b[39m"},
+}
+
 func TestNewColor(t *testing.T) {
-	// Unknown
 	if _, err := color.NewColor("Unknown"); err == nil {
 		t.Errorf("color.NewColor(\"Unknown\"); want error")
 	}
 
-	// SystemBrightRed
-	if got, _ := color.NewColor("SystemBrightRed"); got != color.SystemBrightRed {
-		t.Errorf("color.NewColor(\"SystemBrightRed\") = %s; want SystemBrightRed", got.String())
-	}
-
-	// Red
-	if got, _ := color.NewColor("Red"); got != color.Red {
-		t.Errorf("color.NewColor(\"Red\") = %s; want Red", got.String())
-	}
-
-	// Black
-	if got, _ := color.NewColor("Black"); got != color.Black {
-		t.Errorf("color.NewColor(\"Black\") = %s; want Black", got.String())
+	for _, tt := range foregroundTests {
+		if got, err := color.NewColor(tt.name); got != tt.color {
+			if err != nil {
+				t.Fatal(err)
+			}
+			t.Errorf("color.NewColor(\"%s\") = %s; want %s", tt.name, got.String(), tt.name)
+		}
 	}
 }
 
 func TestColorString(t *testing.T) {
-	// SystemBrightRed
-	if got := color.SystemBrightRed.String(); got != "SystemBrightRed" {
-		t.Errorf("color.SystemBrightRed.String() = %s; want SystemBrightRed", got)
-	}
-
-	// Red
-	if got := color.Red.String(); got != "Red" {
-		t.Errorf("color.Red.String() = %s; want Red", got)
-	}
-
-	// Black
-	if got := color.Black.String(); got != "Black" {
-		t.Errorf("color.Black.String() = %s; want Black", got)
+	for _, tt := range foregroundTests {
+		if got := tt.color.String(); got != tt.name {
+			t.Errorf("color.%s.String() = %s; want %s", tt.name, got, tt.name)
+		}
 	}
 
 	// Foreground System Colors
@@ -114,37 +110,19 @@ func TestColorColorize(t *testing.T) {
 	// Non Terminal
 	color.EnableTerminalDetection()
 
-	// BrightRed
-	if got := color.SystemBrightRed.Colorize("TEXT"); got != "TEXT" {
-		t.Errorf("color.SystemBrightRed.Colorize(\"TEXT\") = %s; want TEXT", got)
-	}
-
-	// Red
-	if got := color.Red.Colorize("TEXT"); got != "TEXT" {
-		t.Errorf("color.Red.Colorize(\"TEXT\") = %s; want TEXT", got)
-	}
-
-	// Black
-	if got := color.Black.Colorize("TEXT"); got != "TEXT" {
-		t.Errorf("color.Black.Colorize(\"TEXT\") = %s; want TEXT", got)
+	for _, tt := range foregroundTests {
+		if got := tt.color.Colorize("TEXT"); got != "TEXT" {
+			t.Errorf("color.%s.Colorize(\"TEXT\") = %s; want TEXT", tt.name, got)
+		}
 	}
 
 	// Terminal
 	color.DisableTerminalDetection()
 
-	// SystemBrightRed
-	if got := color.SystemBrightRed.Colorize("TEXT"); got != "\x1b[91mTEXT\x1b[39m" {
-		t.Errorf("color.SystemBrightRed.Colorize(\"TEXT\") = %s; want \x1b[91mTEXT\x1b[39m", got)
-	}
-
-	// Red
-	if got := color.Red.Colorize("TEXT"); got != "\x1b[38;5;196mTEXT\x1b[39m" {
-		t.Errorf("color.Red.Colorize(\"TEXT\") = %s; want \x1b[38;5;196mTEXT\x1b[39m", got)
-	}
-
-	// Black
-	if got := color.Black.Colorize("TEXT"); got != "\x1b[38;5;16mTEXT\x1b[39m" {
-		t.Errorf("color.Black.Colorize(\"TEXT\") = %s; want \x1b[38;5;16mTEXT\x1b[39m", got)
+	for _, tt := range foregroundTests {
+		if got := tt.color.Colorize("TEXT"); got != tt.output {
+			t.Errorf("color.%s.Colorize(\"TEXT\") = %s; want %s", tt.name, got, tt.output)
+		}
 	}
 
 	// Foreground System Colors
@@ -168,51 +146,38 @@ func TestColorColorize(t *testing.T) {
 	}
 }
 
+type backgroundTest struct {
+	color  color.BackgroundColor
+	name   string
+	output string
+}
+
+var backgroundTests = []backgroundTest{
+	{color.SystemBrightRedBackground, "SystemBrightRed", "\x1b[101mTEXT\x1b[49m"},
+	{color.RedBackground, "Red", "\x1b[48;5;196mTEXT\x1b[49m"},
+	{color.BlackBackground, "Black", "\x1b[48;5;16mTEXT\x1b[49m"},
+}
+
 func TestNewBackgroundColor(t *testing.T) {
-	// Unknown
 	if _, err := color.NewBackgroundColor("Unknown"); err == nil {
 		t.Errorf("color.NewBackgroundColor(\"Unknown\"); want error")
 	}
 
-	// SystemBrightRed
-	if got, err := color.NewBackgroundColor("SystemBrightRed"); got != color.SystemBrightRedBackground {
-		if err != nil {
-			t.Fatal(err)
+	for _, tt := range backgroundTests {
+		if got, err := color.NewBackgroundColor(tt.name); got != tt.color {
+			if err != nil {
+				t.Fatal(err)
+			}
+			t.Errorf("color.NewBackgroundColor(\"%s\") = %s; want %s", tt.name, got.String(), tt.name)
 		}
-		t.Errorf("color.NewBackgroundColor(\"SystemBrightRed\") = %s; want SystemBrightRedBackground", got.String())
-	}
-
-	// Red
-	if got, err := color.NewBackgroundColor("Red"); got != color.RedBackground {
-		if err != nil {
-			t.Fatal(err)
-		}
-		t.Errorf("color.NewBackgroundColor(\"Red\") = %s; want RedBackground", got.String())
-	}
-
-	// Black
-	if got, err := color.NewBackgroundColor("Black"); got != color.BlackBackground {
-		if err != nil {
-			t.Fatal(err)
-		}
-		t.Errorf("color.NewBackgroundColor(\"Black\") = %s; want BlackBackground", got.String())
 	}
 }
 
 func TestBackgroundColorString(t *testing.T) {
-	// SystemBrightRed
-	if got := color.SystemBrightRedBackground.String(); got != "SystemBrightRed" {
-		t.Errorf("color.SystemBrightRedBackground.String() = %s; want SystemBrightRed", got)
-	}
-
-	// Red
-	if got := color.RedBackground.String(); got != "Red" {
-		t.Errorf("color.RedBackground.String() = %s; want Red", got)
-	}
-
-	// Black
-	if got := color.BlackBackground.String(); got != "Black" {
-		t.Errorf("color.BlackBackground.String() = %s; want Black", got)
+	for _, tt := range backgroundTests {
+		if got := tt.color.String(); got != tt.name {
+			t.Errorf("color.%sBackground.String() = %s; want %s", tt.name, got, tt.name)
+		}
 	}
 
 	// Background System Colors
@@ -240,37 +205,19 @@ func TestBackgroundColorColorize(t *testing.T) {
 	// Non Terminal
 	color.EnableTerminalDetection()
 
-	// SystemBrightRed
-	if got := color.SystemBrightRedBackground.Colorize("TEXT"); got != "TEXT" {
-		t.Errorf("color.SystemBrightRedBackground.Colorize(\"TEXT\") = %s; want TEXT", got)
-	}
-
-	// Red
-	if got := color.RedBackground.Colorize("TEXT"); got != "TEXT" {
-		t.Errorf("color.RedBackground.Colorize(\"TEXT\") = %s; want TEXT", got)
-	}
-
-	// Black
-	if got := color.BlackBackground.Colorize("TEXT"); got != "TEXT" {
-		t.Errorf("color.BlackBackground.Colorize(\"TEXT\") = %s; want TEXT", got)
+	for _, tt := range backgroundTests {
+		if got := tt.color.Colorize("TEXT"); got != "TEXT" {
+			t.Errorf("color.%sBackground.Colorize(\"TEXT\") = %s; want TEXT", tt.name, got)
+		}
 	}
 
 	// Terminal
 	color.DisableTerminalDetection()
 
-	// SystemBrightRed
-	if got := color.SystemBrightRedBackground.Colorize("TEXT"); got != "\x1b[101mTEXT\x1b[49m" {
-		t.Errorf("color.SystemBrightRedBackground.Colorize(\"TEXT\") = %s; want \x1b[101mTEXT\x1b[49m", got)
-	}
-
-	// Red
-	if got := color.RedBackground.Colorize("TEXT"); got != "\x1b[48;5;196mTEXT\x1b[49m" {
-		t.Errorf("color.RedBackground.Colorize(\"TEXT\") = %s; want \x1b[48;5;196mTEXT\x1b[49m", got)
-	}
-
-	// Black
-	if got := color.BlackBackground.Colorize("TEXT"); got != "\x1b[48;5;16mTEXT\x1b[49m" {
-		t.Errorf("color.BlackBackground.Colorize(\"TEXT\") = %s; want \x1b[48;5;16mTEXT\x1b[49m", got)
+	for _, tt := range backgroundTests {
+		if got := tt.color.Colorize("TEXT"); got != tt.output {
+			t.Errorf("color.%sBackground.Colorize(\"TEXT\") = %s; want %s", tt.name, got, tt.output)
+		}
 	}
 
 	// Background System Colors
@@ -289,7 +236,121 @@ func TestBackgroundColorColorize(t *testing.T) {
 		got := c.Colorize("TEXT")
 		want := fmt.Sprintf("\x1b[48;5;%smTEXT\x1b[49m", record[2])
 		if got != want {
-			t.Errorf("color.%s.Colorize(\"TEXT\") = %s; want %s", record[0], got, want)
+			t.Errorf("color.%sBackground.Colorize(\"TEXT\") = %s; want %s", record[0], got, want)
+		}
+	}
+}
+
+func TestColorizeForeground(t *testing.T) {
+	// Non Terminal
+	color.EnableTerminalDetection()
+
+	for _, tt := range foregroundTests {
+		if got := color.ColorizeForeground("TEXT", tt.color); got != "TEXT" {
+			t.Errorf("color.ColorizeForeground(\"TEXT\", color.%s) = %s; want TEXT", tt.name, got)
+		}
+	}
+
+	// Terminal
+	color.DisableTerminalDetection()
+
+	for _, tt := range foregroundTests {
+		if got := color.ColorizeForeground("TEXT", tt.color); got != tt.output {
+			t.Errorf("color.ColorizeForeground(\"TEXT\", color.%s) = %s; want %s", tt.name, got, tt.output)
+		}
+	}
+
+	// Foreground System Colors
+	for _, record := range foregroundSystemColorRecords {
+		c, _ := color.NewColor("System" + record[0])
+		got := color.ColorizeForeground("TEXT", c)
+		want := fmt.Sprintf("\x1b[%smTEXT\x1b[39m", record[2])
+		if got != want {
+			t.Errorf("color.Colorize(\"TEXT\", color.System%s = %s; want %s", record[0], got, want)
+		}
+	}
+
+	// Foreground Colors
+	for _, record := range colorRecords {
+		c, _ := color.NewColor(record[0])
+		got := color.ColorizeForeground("TEXT", c)
+		want := fmt.Sprintf("\x1b[38;5;%smTEXT\x1b[39m", record[2])
+		if got != want {
+			t.Errorf("color.Colorize(\"TEXT\", color.%s = %s; want %s", record[0], got, want)
+		}
+	}
+}
+
+func TestColorizeBackground(t *testing.T) {
+	// Non Terminal
+	color.EnableTerminalDetection()
+
+	for _, tt := range backgroundTests {
+		if got := color.ColorizeBackground("TEXT", tt.color); got != "TEXT" {
+			t.Errorf("color.ColorizeBackground(\"TEXT\", color.%sBackground) = %s; want TEXT", tt.name, got)
+		}
+	}
+
+	// Terminal
+	color.DisableTerminalDetection()
+
+	for _, tt := range backgroundTests {
+		if got := color.ColorizeBackground("TEXT", tt.color); got != tt.output {
+			t.Errorf("color.ColorizeBackground(\"TEXT\", color.%sBackground) = %s; want %s", tt.name, got, tt.output)
+		}
+	}
+
+	// Background System Colors
+	for _, record := range backgroundSystemColorRecords {
+		c, _ := color.NewBackgroundColor("System" + record[0])
+		got := color.ColorizeBackground("TEXT", c)
+		want := fmt.Sprintf("\x1b[%smTEXT\x1b[49m", record[2])
+		if got != want {
+			t.Errorf("color.ColorizeBackground(\"TEXT\", color.System%sBackground) = %s; want %s", record[0], got, want)
+		}
+	}
+
+	// Background Colors
+	for _, record := range colorRecords {
+		c, _ := color.NewBackgroundColor(record[0])
+		got := color.ColorizeBackground("TEXT", c)
+		want := fmt.Sprintf("\x1b[48;5;%smTEXT\x1b[49m", record[2])
+		if got != want {
+			t.Errorf("color.ColorizeBackground(\"TEXT\", color.%sBackground) = %s; want %s", record[0], got, want)
+		}
+	}
+}
+
+type colorizeTest struct {
+	fgColor color.Color
+	fgName  string
+	bgColor color.BackgroundColor
+	bgName  string
+	output  string
+}
+
+var colorizeTests = []colorizeTest{
+	{color.SystemWhite, "SystemWhite", color.SystemBrightRedBackground, "SystemBrightRed", "\x1b[101m\x1b[37mTEXT\x1b[39m\x1b[49m"},
+	{color.White, "White", color.RedBackground, "Red", "\x1b[48;5;196m\x1b[38;5;231mTEXT\x1b[39m\x1b[49m"},
+	{color.White, "White", color.BlackBackground, "Black", "\x1b[48;5;16m\x1b[38;5;231mTEXT\x1b[39m\x1b[49m"},
+}
+
+func TestColorize(t *testing.T) {
+	// Non Terminal
+	color.EnableTerminalDetection()
+
+	for _, tt := range colorizeTests {
+		if got := color.Colorize("TEXT", tt.fgColor, tt.bgColor); got != "TEXT" {
+			t.Errorf("color.Colorize(\"TEXT\", color.%s, color.%sBackground) = %s; want TEXT", tt.fgName, tt.bgName, got)
+		}
+	}
+
+	// Terminal
+	color.DisableTerminalDetection()
+
+	for _, tt := range colorizeTests {
+		if got := color.Colorize("TEXT", tt.fgColor, tt.bgColor); got != tt.output {
+			t.Errorf("color.Colorize(\"TEXT\", color.%s, color.%sBackground) = %s; want %s", tt.fgName, tt.bgName, got, tt.output)
 		}
 	}
 }

@@ -53,7 +53,7 @@ import (
 )
 
 func main() {
-	fmt.Println(color.GreenBackground.Colorize(color.White.Colorize("OK")))
+	fmt.Println(color.Colorize("OK", color.White, color.GreenBackground))
 }
 ```
 
