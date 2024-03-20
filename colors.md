@@ -35,6 +35,7 @@
 - <span style="color:#FF00FF;">Magenta</span>
 - <span style="color:#FF0087;">Rose</span>
 - <span style="color:#FFFFFF;">White</span>
+- <span style="color:#BCBCBC;">Silver</span>
 - <span style="color:#808080;">Grey</span>
 - <span style="color:#000000;">Black</span>
 

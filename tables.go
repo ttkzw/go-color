@@ -106,6 +106,9 @@ const (
 	// White: HTML Hex Color Code #FFFFFF, Ansi 8-bit Color Code 231
 	White
 
+	// Silver: HTML Hex Color Code #BCBCBC, Ansi 8-bit Color Code 250
+	Silver
+
 	// Grey: HTML Hex Color Code #808080, Ansi 8-bit Color Code 244
 	Grey
 
@@ -155,6 +158,7 @@ var colorNames = []string{
 	"Magenta",
 	"Rose",
 	"White",
+	"Silver",
 	"Grey",
 	"Black",
 }
@@ -201,6 +205,7 @@ var colorParameters = [...]string{
 	Magenta:     "38;5;201",
 	Rose:        "38;5;198",
 	White:       "38;5;231",
+	Silver:      "38;5;250",
 	Grey:        "38;5;244",
 	Black:       "38;5;16",
 }
@@ -305,6 +310,9 @@ const (
 	// White for background color: HTML Hex Color Code #FFFFFF, Ansi 8-bit Color Code 231
 	WhiteBackground
 
+	// Silver for background color: HTML Hex Color Code #BCBCBC, Ansi 8-bit Color Code 250
+	SilverBackground
+
 	// Grey for background color: HTML Hex Color Code #808080, Ansi 8-bit Color Code 244
 	GreyBackground
 
@@ -354,6 +362,7 @@ var backgroundColorNames = []string{
 	"Magenta",
 	"Rose",
 	"White",
+	"Silver",
 	"Grey",
 	"Black",
 }
@@ -400,6 +409,7 @@ var backgroundColorParameters = [...]string{
 	MagentaBackground:     "48;5;201",
 	RoseBackground:        "48;5;198",
 	WhiteBackground:       "48;5;231",
+	SilverBackground:      "48;5;250",
 	GreyBackground:        "48;5;244",
 	BlackBackground:       "48;5;16",
 }
