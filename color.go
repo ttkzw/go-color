@@ -1,4 +1,4 @@
-// Copyright 2021 Takashi Takizawa. All rights reserved.
+// Copyright 2021-2024 Takashi Takizawa. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
@@ -16,6 +16,17 @@ import (
 )
 
 const Version = "0.3.0"
+
+const (
+	// csi is CONTROL SEQUENCE INTRODUCER (CSI), "ESC [".
+	csi = "\x1b["
+
+	// sgr_end_char is the end character of SGR (SELECT GRAPHIC RENDITION), which is "m".
+	sgr_end_char = "m"
+
+	// sgr_separeter is the separator of SGR (SELECT GRAPHIC RENDITION), which is ";".
+	sgr_separator = ";"
+)
 
 var terminalDetection = true
 
@@ -37,23 +48,24 @@ func (c Color) String() string {
 	return colorNames[c]
 }
 
-func (c Color) escapeSequence() string {
-	if 0 <= c && int(c) < len(colorEscapeSequences) {
-		return colorEscapeSequences[c]
+func (c Color) parameter() string {
+	var parameter = colorParameters[0]
+	if 0 <= c && int(c) < len(colorParameters) {
+		parameter = colorParameters[c]
 	}
-	return colorEscapeSequences[0]
+	return parameter
+}
+
+func (c Color) escapeSequence() string {
+	return strings.Join([]string{csi, c.parameter(), sgr_end_char}, "")
 }
 
 // Colorize colors the string with the foreground color.
 func (c Color) Colorize(str string) string {
-	isTerminal := true
-	if terminalDetection {
-		isTerminal = isatty.IsTerminal(os.Stdout.Fd())
-	}
-	if !isTerminal {
+	if terminalDetection && !isatty.IsTerminal(os.Stdout.Fd()) {
 		return str
 	}
-	return fmt.Sprintf("%s%s%s", c.escapeSequence(), str, Default.escapeSequence())
+	return fmt.Sprint(strings.Join([]string{c.escapeSequence(), str, Default.escapeSequence()}, ""))
 }
 
 // BackgroundColor is a background color for output.
@@ -74,23 +86,24 @@ func (c BackgroundColor) String() string {
 	return backgroundColorNames[c]
 }
 
-func (c BackgroundColor) escapeSequence() string {
-	if 0 <= c && int(c) < len(backgroundColorEscapeSequences) {
-		return backgroundColorEscapeSequences[c]
+func (c BackgroundColor) parameter() string {
+	var parameter = backgroundColorParameters[0]
+	if 0 <= c && int(c) < len(backgroundColorParameters) {
+		parameter = backgroundColorParameters[c]
 	}
-	return backgroundColorEscapeSequences[0]
+	return parameter
+}
+
+func (c BackgroundColor) escapeSequence() string {
+	return strings.Join([]string{csi, c.parameter(), sgr_end_char}, "")
 }
 
 // Colorize colors the string with the background color.
 func (c BackgroundColor) Colorize(str string) string {
-	isTerminal := true
-	if terminalDetection {
-		isTerminal = isatty.IsTerminal(os.Stdout.Fd())
-	}
-	if !isTerminal {
+	if terminalDetection && !isatty.IsTerminal(os.Stdout.Fd()) {
 		return str
 	}
-	return fmt.Sprintf("%s%s%s", c.escapeSequence(), str, DefaultBackground.escapeSequence())
+	return fmt.Sprint(strings.Join([]string{c.escapeSequence(), str, DefaultBackground.escapeSequence()}, ""))
 }
 
 func SupportedColors() []Color {
@@ -117,7 +130,13 @@ func ColorizeBackground(str string, background BackgroundColor) string {
 
 // Colorize colors the string　with foreground and background colors.
 func Colorize(str string, foreground Color, background BackgroundColor) string {
-	return background.Colorize(foreground.Colorize(str))
+	if terminalDetection && !isatty.IsTerminal(os.Stdout.Fd()) {
+		return str
+	}
+	return strings.Join([]string{
+		csi, foreground.parameter(), sgr_separator, background.parameter(), sgr_end_char,
+		str,
+		csi, Default.parameter(), sgr_separator, DefaultBackground.parameter(), sgr_end_char}, "")
 }
 
 // EnableTerminalDetection enables terminal detection.

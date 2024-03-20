@@ -1,4 +1,4 @@
-// Copyright 2021-2023 Takashi Takizawa. All rights reserved.
+// Copyright 2021-2024 Takashi Takizawa. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 //
@@ -159,50 +159,50 @@ var colorNames = []string{
 	"Black",
 }
 
-var colorEscapeSequences = [...]string{
+var colorParameters = [...]string{
 	// Default foreground color
-	Default: "\x1b[39m",
+	Default: "39",
 
 	/*
 	 * system colors
 	 */
 
-	SystemBlack:         "\x1b[30m",
-	SystemRed:           "\x1b[31m",
-	SystemGreen:         "\x1b[32m",
-	SystemYellow:        "\x1b[33m",
-	SystemBlue:          "\x1b[34m",
-	SystemMagenta:       "\x1b[35m",
-	SystemCyan:          "\x1b[36m",
-	SystemWhite:         "\x1b[37m",
-	SystemBrightBlack:   "\x1b[90m",
-	SystemBrightRed:     "\x1b[91m",
-	SystemBrightGreen:   "\x1b[92m",
-	SystemBrightYellow:  "\x1b[93m",
-	SystemBrightBlue:    "\x1b[94m",
-	SystemBrightMagenta: "\x1b[95m",
-	SystemBrightCyan:    "\x1b[96m",
-	SystemBrightWhite:   "\x1b[97m",
+	SystemBlack:         "30",
+	SystemRed:           "31",
+	SystemGreen:         "32",
+	SystemYellow:        "33",
+	SystemBlue:          "34",
+	SystemMagenta:       "35",
+	SystemCyan:          "36",
+	SystemWhite:         "37",
+	SystemBrightBlack:   "90",
+	SystemBrightRed:     "91",
+	SystemBrightGreen:   "92",
+	SystemBrightYellow:  "93",
+	SystemBrightBlue:    "94",
+	SystemBrightMagenta: "95",
+	SystemBrightCyan:    "96",
+	SystemBrightWhite:   "97",
 
 	/*
 	 * 8-bit colors
 	 */
 
-	Red:         "\x1b[38;5;196m",
-	Orange:      "\x1b[38;5;208m",
-	Yellow:      "\x1b[38;5;226m",
-	Chartreuse:  "\x1b[38;5;118m",
-	Green:       "\x1b[38;5;46m",
-	SpringGreen: "\x1b[38;5;48m",
-	Cyan:        "\x1b[38;5;51m",
-	Azure:       "\x1b[38;5;195m",
-	Blue:        "\x1b[38;5;21m",
-	Violet:      "\x1b[38;5;93m",
-	Magenta:     "\x1b[38;5;201m",
-	Rose:        "\x1b[38;5;198m",
-	White:       "\x1b[38;5;231m",
-	Grey:        "\x1b[38;5;244m",
-	Black:       "\x1b[38;5;16m",
+	Red:         "38;5;196",
+	Orange:      "38;5;208",
+	Yellow:      "38;5;226",
+	Chartreuse:  "38;5;118",
+	Green:       "38;5;46",
+	SpringGreen: "38;5;48",
+	Cyan:        "38;5;51",
+	Azure:       "38;5;195",
+	Blue:        "38;5;21",
+	Violet:      "38;5;93",
+	Magenta:     "38;5;201",
+	Rose:        "38;5;198",
+	White:       "38;5;231",
+	Grey:        "38;5;244",
+	Black:       "38;5;16",
 }
 
 // Background Color name
@@ -358,48 +358,48 @@ var backgroundColorNames = []string{
 	"Black",
 }
 
-var backgroundColorEscapeSequences = [...]string{
+var backgroundColorParameters = [...]string{
 	// Default background color
-	DefaultBackground: "\x1b[49m",
+	DefaultBackground: "49",
 
 	/*
 	 * system colors
 	 */
 
-	SystemBlackBackground:         "\x1b[40m",
-	SystemRedBackground:           "\x1b[41m",
-	SystemGreenBackground:         "\x1b[42m",
-	SystemYellowBackground:        "\x1b[43m",
-	SystemBlueBackground:          "\x1b[44m",
-	SystemMagentaBackground:       "\x1b[45m",
-	SystemCyanBackground:          "\x1b[46m",
-	SystemWhiteBackground:         "\x1b[47m",
-	SystemBrightBlackBackground:   "\x1b[100m",
-	SystemBrightRedBackground:     "\x1b[101m",
-	SystemBrightGreenBackground:   "\x1b[102m",
-	SystemBrightYellowBackground:  "\x1b[103m",
-	SystemBrightBlueBackground:    "\x1b[104m",
-	SystemBrightMagentaBackground: "\x1b[105m",
-	SystemBrightCyanBackground:    "\x1b[106m",
-	SystemBrightWhiteBackground:   "\x1b[107m",
+	SystemBlackBackground:         "40",
+	SystemRedBackground:           "41",
+	SystemGreenBackground:         "42",
+	SystemYellowBackground:        "43",
+	SystemBlueBackground:          "44",
+	SystemMagentaBackground:       "45",
+	SystemCyanBackground:          "46",
+	SystemWhiteBackground:         "47",
+	SystemBrightBlackBackground:   "100",
+	SystemBrightRedBackground:     "101",
+	SystemBrightGreenBackground:   "102",
+	SystemBrightYellowBackground:  "103",
+	SystemBrightBlueBackground:    "104",
+	SystemBrightMagentaBackground: "105",
+	SystemBrightCyanBackground:    "106",
+	SystemBrightWhiteBackground:   "107",
 
 	/*
 	 * 8-bit colors
 	 */
 
-	RedBackground:         "\x1b[48;5;196m",
-	OrangeBackground:      "\x1b[48;5;208m",
-	YellowBackground:      "\x1b[48;5;226m",
-	ChartreuseBackground:  "\x1b[48;5;118m",
-	GreenBackground:       "\x1b[48;5;46m",
-	SpringGreenBackground: "\x1b[48;5;48m",
-	CyanBackground:        "\x1b[48;5;51m",
-	AzureBackground:       "\x1b[48;5;195m",
-	BlueBackground:        "\x1b[48;5;21m",
-	VioletBackground:      "\x1b[48;5;93m",
-	MagentaBackground:     "\x1b[48;5;201m",
-	RoseBackground:        "\x1b[48;5;198m",
-	WhiteBackground:       "\x1b[48;5;231m",
-	GreyBackground:        "\x1b[48;5;244m",
-	BlackBackground:       "\x1b[48;5;16m",
+	RedBackground:         "48;5;196",
+	OrangeBackground:      "48;5;208",
+	YellowBackground:      "48;5;226",
+	ChartreuseBackground:  "48;5;118",
+	GreenBackground:       "48;5;46",
+	SpringGreenBackground: "48;5;48",
+	CyanBackground:        "48;5;51",
+	AzureBackground:       "48;5;195",
+	BlueBackground:        "48;5;21",
+	VioletBackground:      "48;5;93",
+	MagentaBackground:     "48;5;201",
+	RoseBackground:        "48;5;198",
+	WhiteBackground:       "48;5;231",
+	GreyBackground:        "48;5;244",
+	BlackBackground:       "48;5;16",
 }
