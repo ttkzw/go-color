@@ -330,9 +330,9 @@ type colorizeTest struct {
 }
 
 var colorizeTests = []colorizeTest{
-	{color.SystemWhite, "SystemWhite", color.SystemBrightRedBackground, "SystemBrightRed", "\x1b[101m\x1b[37mTEXT\x1b[39m\x1b[49m"},
-	{color.White, "White", color.RedBackground, "Red", "\x1b[48;5;196m\x1b[38;5;231mTEXT\x1b[39m\x1b[49m"},
-	{color.White, "White", color.BlackBackground, "Black", "\x1b[48;5;16m\x1b[38;5;231mTEXT\x1b[39m\x1b[49m"},
+	{color.SystemWhite, "SystemWhite", color.SystemBrightRedBackground, "SystemBrightRed", "\x1b[37;101mTEXT\x1b[39;49m"},
+	{color.White, "White", color.RedBackground, "Red", "\x1b[38;5;231;48;5;196mTEXT\x1b[39;49m"},
+	{color.White, "White", color.BlackBackground, "Black", "\x1b[38;5;231;48;5;16mTEXT\x1b[39;49m"},
 }
 
 func TestColorize(t *testing.T) {

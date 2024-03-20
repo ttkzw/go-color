@@ -1,4 +1,4 @@
-// Copyright 2023 Takashi Takizawa. All rights reserved.
+// Copyright 2023-2024 Takashi Takizawa. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
@@ -90,7 +90,7 @@ func generate(data Data, text string, filename string) {
 	os.Rename(f.Name(), filename)
 }
 
-var templateCode = `// Copyright 2021-2023 Takashi Takizawa. All rights reserved.
+var templateCode = `// Copyright 2021-2024 Takashi Takizawa. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 //
@@ -137,21 +137,21 @@ var colorNames = []string{
 	"{{.Name}}",{{end}}
 }
 
-var colorEscapeSequences = [...]string{
+var colorParameters = [...]string{
 	// Default foreground color
-	Default: "\x1b[39m",
+	Default: "39",
 
 	/*
 	 * system colors
 	 */
 {{range .ForegroundSystemColors}}
-	System{{.Name}}: "\x1b[{{.AnsiColorCode}}m",{{end}}
+	System{{.Name}}: "{{.AnsiColorCode}}",{{end}}
 
 	/*
 	 * 8-bit colors
 	 */
 {{range .Colors}}
-	{{.Name}}: "\x1b[38;5;{{.AnsiColorCode}}m",{{end}}
+	{{.Name}}: "38;5;{{.AnsiColorCode}}",{{end}}
 }
 
 // Background Color name
@@ -193,21 +193,21 @@ var backgroundColorNames = []string{
 	"{{.Name}}",{{end}}
 }
 
-var backgroundColorEscapeSequences = [...]string{
+var backgroundColorParameters = [...]string{
 	// Default background color
-	DefaultBackground: "\x1b[49m",
+	DefaultBackground: "49",
 
 	/*
 	 * system colors
 	 */
 {{range .BackgroundSystemColors}}
-	System{{.Name}}Background: "\x1b[{{.AnsiColorCode}}m",{{end}}
+	System{{.Name}}Background: "{{.AnsiColorCode}}",{{end}}
 
 	/*
 	 * 8-bit colors
 	 */
 {{range .Colors}}
-	{{.Name}}Background: "\x1b[48;5;{{.AnsiColorCode}}m",{{end}}
+	{{.Name}}Background: "48;5;{{.AnsiColorCode}}",{{end}}
 }
 `
 
