@@ -88,7 +88,7 @@ const (
 	// Cyan: HTML Hex Color Code #00FFFF, Ansi 8-bit Color Code 51
 	Cyan
 
-	// Azure: HTML Hex Color Code #0087FF, Ansi 8-bit Color Code 195
+	// Azure: HTML Hex Color Code #0087FF, Ansi 8-bit Color Code 33
 	Azure
 
 	// Blue: HTML Hex Color Code #0000FF, Ansi 8-bit Color Code 21
@@ -199,7 +199,7 @@ var colorParameters = [...]string{
 	Green:       "38;5;46",
 	SpringGreen: "38;5;48",
 	Cyan:        "38;5;51",
-	Azure:       "38;5;195",
+	Azure:       "38;5;33",
 	Blue:        "38;5;21",
 	Violet:      "38;5;93",
 	Magenta:     "38;5;201",
@@ -292,7 +292,7 @@ const (
 	// Cyan for background color: HTML Hex Color Code #00FFFF, Ansi 8-bit Color Code 51
 	CyanBackground
 
-	// Azure for background color: HTML Hex Color Code #0087FF, Ansi 8-bit Color Code 195
+	// Azure for background color: HTML Hex Color Code #0087FF, Ansi 8-bit Color Code 33
 	AzureBackground
 
 	// Blue for background color: HTML Hex Color Code #0000FF, Ansi 8-bit Color Code 21
@@ -403,7 +403,7 @@ var backgroundColorParameters = [...]string{
 	GreenBackground:       "48;5;46",
 	SpringGreenBackground: "48;5;48",
 	CyanBackground:        "48;5;51",
-	AzureBackground:       "48;5;195",
+	AzureBackground:       "48;5;33",
 	BlueBackground:        "48;5;21",
 	VioletBackground:      "48;5;93",
 	MagentaBackground:     "48;5;201",
