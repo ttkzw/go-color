@@ -6,113 +6,113 @@
 
 package color
 
-// Color name
+// Foreground color name
 const (
 	// Default foreground color
 	Default = Color(iota)
 
 	/*
-	 * system colors
+	 * system colors for foreground colors
 	 */
 
-	// Black for system color
+	// Black for system foreground color
 	SystemBlack
 
-	// Red for system color
+	// Red for system foreground color
 	SystemRed
 
-	// Green for system color
+	// Green for system foreground color
 	SystemGreen
 
-	// Yellow for system color
+	// Yellow for system foreground color
 	SystemYellow
 
-	// Blue for system color
+	// Blue for system foreground color
 	SystemBlue
 
-	// Magenta for system color
+	// Magenta for system foreground color
 	SystemMagenta
 
-	// Cyan for system color
+	// Cyan for system foreground color
 	SystemCyan
 
-	// White for system color
+	// White for system foreground color
 	SystemWhite
 
-	// BrightBlack for system color
+	// BrightBlack for system foreground color
 	SystemBrightBlack
 
-	// BrightRed for system color
+	// BrightRed for system foreground color
 	SystemBrightRed
 
-	// BrightGreen for system color
+	// BrightGreen for system foreground color
 	SystemBrightGreen
 
-	// BrightYellow for system color
+	// BrightYellow for system foreground color
 	SystemBrightYellow
 
-	// BrightBlue for system color
+	// BrightBlue for system foreground color
 	SystemBrightBlue
 
-	// BrightMagenta for system color
+	// BrightMagenta for system foreground color
 	SystemBrightMagenta
 
-	// BrightCyan for system color
+	// BrightCyan for system foreground color
 	SystemBrightCyan
 
-	// BrightWhite for system color
+	// BrightWhite for system foreground color
 	SystemBrightWhite
 
 	/*
-	 * 8-bit colors
+	 * 8-bit colors for foreground colors
 	 */
 
-	// Red: HTML Hex Color Code #FF0000, Ansi 8-bit Color Code 196
+	// Red: HTML Hex Color Code #FF0000, Ansi 8-bit Color Index 196
 	Red
 
-	// Orange: HTML Hex Color Code #FF8700, Ansi 8-bit Color Code 208
+	// Orange: HTML Hex Color Code #FF8700, Ansi 8-bit Color Index 208
 	Orange
 
-	// Yellow: HTML Hex Color Code #FFFF00, Ansi 8-bit Color Code 226
+	// Yellow: HTML Hex Color Code #FFFF00, Ansi 8-bit Color Index 226
 	Yellow
 
-	// Chartreuse: HTML Hex Color Code #87FF00, Ansi 8-bit Color Code 118
+	// Chartreuse: HTML Hex Color Code #87FF00, Ansi 8-bit Color Index 118
 	Chartreuse
 
-	// Green: HTML Hex Color Code #00FF00, Ansi 8-bit Color Code 46
+	// Green: HTML Hex Color Code #00FF00, Ansi 8-bit Color Index 46
 	Green
 
-	// SpringGreen: HTML Hex Color Code #00FF87, Ansi 8-bit Color Code 48
+	// SpringGreen: HTML Hex Color Code #00FF87, Ansi 8-bit Color Index 48
 	SpringGreen
 
-	// Cyan: HTML Hex Color Code #00FFFF, Ansi 8-bit Color Code 51
+	// Cyan: HTML Hex Color Code #00FFFF, Ansi 8-bit Color Index 51
 	Cyan
 
-	// Azure: HTML Hex Color Code #0087FF, Ansi 8-bit Color Code 33
+	// Azure: HTML Hex Color Code #0087FF, Ansi 8-bit Color Index 33
 	Azure
 
-	// Blue: HTML Hex Color Code #0000FF, Ansi 8-bit Color Code 21
+	// Blue: HTML Hex Color Code #0000FF, Ansi 8-bit Color Index 21
 	Blue
 
-	// Violet: HTML Hex Color Code #8700FF, Ansi 8-bit Color Code 93
+	// Violet: HTML Hex Color Code #8700FF, Ansi 8-bit Color Index 93
 	Violet
 
-	// Magenta: HTML Hex Color Code #FF00FF, Ansi 8-bit Color Code 201
+	// Magenta: HTML Hex Color Code #FF00FF, Ansi 8-bit Color Index 201
 	Magenta
 
-	// Rose: HTML Hex Color Code #FF0087, Ansi 8-bit Color Code 198
+	// Rose: HTML Hex Color Code #FF0087, Ansi 8-bit Color Index 198
 	Rose
 
-	// White: HTML Hex Color Code #FFFFFF, Ansi 8-bit Color Code 231
+	// White: HTML Hex Color Code #FFFFFF, Ansi 8-bit Color Index 231
 	White
 
-	// Silver: HTML Hex Color Code #BCBCBC, Ansi 8-bit Color Code 250
+	// Silver: HTML Hex Color Code #BCBCBC, Ansi 8-bit Color Index 250
 	Silver
 
-	// Grey: HTML Hex Color Code #808080, Ansi 8-bit Color Code 244
+	// Grey: HTML Hex Color Code #808080, Ansi 8-bit Color Index 244
 	Grey
 
-	// Black: HTML Hex Color Code #000000, Ansi 8-bit Color Code 16
+	// Black: HTML Hex Color Code #000000, Ansi 8-bit Color Index 16
 	Black
 )
 
@@ -121,7 +121,7 @@ var colorNames = []string{
 	"Default",
 
 	/*
-	 * system colors
+	 * system colors for foreground colors
 	 */
 
 	"SystemBlack",
@@ -142,7 +142,7 @@ var colorNames = []string{
 	"SystemBrightWhite",
 
 	/*
-	 * 8-bit colors
+	 * 8-bit colors for foreground colors
 	 */
 
 	"Red",
@@ -168,7 +168,7 @@ var colorParameters = [...]string{
 	Default: "39",
 
 	/*
-	 * system colors
+	 * system colors for foreground colors
 	 */
 
 	SystemBlack:         "30",
@@ -189,7 +189,7 @@ var colorParameters = [...]string{
 	SystemBrightWhite:   "97",
 
 	/*
-	 * 8-bit colors
+	 * 8-bit colors for foreground colors
 	 */
 
 	Red:         "38;5;196",
@@ -210,13 +210,13 @@ var colorParameters = [...]string{
 	Black:       "38;5;16",
 }
 
-// Background Color name
+// Background color name
 const (
 	// Default background color
 	DefaultBackground = BackgroundColor(iota)
 
 	/*
-	 * system colors
+	 * system colors for background colors
 	 */
 
 	// Black for system background color
@@ -268,55 +268,55 @@ const (
 	SystemBrightWhiteBackground
 
 	/*
-	 * 8-bit colors
+	 * 8-bit colors for background colors
 	 */
 
-	// Red for background color: HTML Hex Color Code #FF0000, Ansi 8-bit Color Code 196
+	// Red for background color: HTML Hex Color Code #FF0000, Ansi 8-bit Color Index 196
 	RedBackground
 
-	// Orange for background color: HTML Hex Color Code #FF8700, Ansi 8-bit Color Code 208
+	// Orange for background color: HTML Hex Color Code #FF8700, Ansi 8-bit Color Index 208
 	OrangeBackground
 
-	// Yellow for background color: HTML Hex Color Code #FFFF00, Ansi 8-bit Color Code 226
+	// Yellow for background color: HTML Hex Color Code #FFFF00, Ansi 8-bit Color Index 226
 	YellowBackground
 
-	// Chartreuse for background color: HTML Hex Color Code #87FF00, Ansi 8-bit Color Code 118
+	// Chartreuse for background color: HTML Hex Color Code #87FF00, Ansi 8-bit Color Index 118
 	ChartreuseBackground
 
-	// Green for background color: HTML Hex Color Code #00FF00, Ansi 8-bit Color Code 46
+	// Green for background color: HTML Hex Color Code #00FF00, Ansi 8-bit Color Index 46
 	GreenBackground
 
-	// SpringGreen for background color: HTML Hex Color Code #00FF87, Ansi 8-bit Color Code 48
+	// SpringGreen for background color: HTML Hex Color Code #00FF87, Ansi 8-bit Color Index 48
 	SpringGreenBackground
 
-	// Cyan for background color: HTML Hex Color Code #00FFFF, Ansi 8-bit Color Code 51
+	// Cyan for background color: HTML Hex Color Code #00FFFF, Ansi 8-bit Color Index 51
 	CyanBackground
 
-	// Azure for background color: HTML Hex Color Code #0087FF, Ansi 8-bit Color Code 33
+	// Azure for background color: HTML Hex Color Code #0087FF, Ansi 8-bit Color Index 33
 	AzureBackground
 
-	// Blue for background color: HTML Hex Color Code #0000FF, Ansi 8-bit Color Code 21
+	// Blue for background color: HTML Hex Color Code #0000FF, Ansi 8-bit Color Index 21
 	BlueBackground
 
-	// Violet for background color: HTML Hex Color Code #8700FF, Ansi 8-bit Color Code 93
+	// Violet for background color: HTML Hex Color Code #8700FF, Ansi 8-bit Color Index 93
 	VioletBackground
 
-	// Magenta for background color: HTML Hex Color Code #FF00FF, Ansi 8-bit Color Code 201
+	// Magenta for background color: HTML Hex Color Code #FF00FF, Ansi 8-bit Color Index 201
 	MagentaBackground
 
-	// Rose for background color: HTML Hex Color Code #FF0087, Ansi 8-bit Color Code 198
+	// Rose for background color: HTML Hex Color Code #FF0087, Ansi 8-bit Color Index 198
 	RoseBackground
 
-	// White for background color: HTML Hex Color Code #FFFFFF, Ansi 8-bit Color Code 231
+	// White for background color: HTML Hex Color Code #FFFFFF, Ansi 8-bit Color Index 231
 	WhiteBackground
 
-	// Silver for background color: HTML Hex Color Code #BCBCBC, Ansi 8-bit Color Code 250
+	// Silver for background color: HTML Hex Color Code #BCBCBC, Ansi 8-bit Color Index 250
 	SilverBackground
 
-	// Grey for background color: HTML Hex Color Code #808080, Ansi 8-bit Color Code 244
+	// Grey for background color: HTML Hex Color Code #808080, Ansi 8-bit Color Index 244
 	GreyBackground
 
-	// Black for background color: HTML Hex Color Code #000000, Ansi 8-bit Color Code 16
+	// Black for background color: HTML Hex Color Code #000000, Ansi 8-bit Color Index 16
 	BlackBackground
 )
 
@@ -325,7 +325,7 @@ var backgroundColorNames = []string{
 	"Default",
 
 	/*
-	 * system colors
+	 * system colors for background colors
 	 */
 
 	"SystemBlack",
@@ -346,7 +346,7 @@ var backgroundColorNames = []string{
 	"SystemBrightWhite",
 
 	/*
-	 * 8-bit colors
+	 * 8-bit colors for background colors
 	 */
 
 	"Red",
@@ -372,7 +372,7 @@ var backgroundColorParameters = [...]string{
 	DefaultBackground: "49",
 
 	/*
-	 * system colors
+	 * system colors for background colors
 	 */
 
 	SystemBlackBackground:         "40",
@@ -393,7 +393,7 @@ var backgroundColorParameters = [...]string{
 	SystemBrightWhiteBackground:   "107",
 
 	/*
-	 * 8-bit colors
+	 * 8-bit colors for background colors
 	 */
 
 	RedBackground:         "48;5;196",

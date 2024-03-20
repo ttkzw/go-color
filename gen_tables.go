@@ -98,24 +98,24 @@ var templateCode = `// Copyright 2021-2024 Takashi Takizawa. All rights reserved
 
 package color
 
-// Color name
+// Foreground color name
 const (
 	// Default foreground color
 	Default = Color(iota)
 
 	/*
-	 * system colors
+	 * system colors for foreground colors
 	 */
 {{range .ForegroundSystemColors}}
-	// {{.Name}} for system color
+	// {{.Name}} for system foreground color
 	System{{.Name}}
 {{end}}
 
 	/*
-	 * 8-bit colors
+	 * 8-bit colors for foreground colors
 	 */
 {{range .Colors}}
-	// {{.Name}}: HTML Hex Color Code {{.HtmlHexColorCode}}, Ansi 8-bit Color Code {{.AnsiColorCode}}
+	// {{.Name}}: HTML Hex Color Code {{.HtmlHexColorCode}}, Ansi 8-bit Color Index {{.AnsiColorCode}}
 	{{.Name}}
 {{end}}
 )
@@ -125,13 +125,13 @@ var colorNames = []string{
 	"Default",
 
 	/*
-	 * system colors
+	 * system colors for foreground colors
 	 */
 {{range .ForegroundSystemColors}}
 	"System{{.Name}}",{{end}}
 
 	/*
-	 * 8-bit colors
+	 * 8-bit colors for foreground colors
 	 */
 {{range .Colors}}
 	"{{.Name}}",{{end}}
@@ -142,25 +142,25 @@ var colorParameters = [...]string{
 	Default: "39",
 
 	/*
-	 * system colors
+	 * system colors for foreground colors
 	 */
 {{range .ForegroundSystemColors}}
 	System{{.Name}}: "{{.AnsiColorCode}}",{{end}}
 
 	/*
-	 * 8-bit colors
+	 * 8-bit colors for foreground colors
 	 */
 {{range .Colors}}
 	{{.Name}}: "38;5;{{.AnsiColorCode}}",{{end}}
 }
 
-// Background Color name
+// Background color name
 const (
 	// Default background color
 	DefaultBackground = BackgroundColor(iota)
 
 	/*
-	 * system colors
+	 * system colors for background colors
 	 */
 {{range .BackgroundSystemColors}}
 	// {{.Name}} for system background color
@@ -168,10 +168,10 @@ const (
 {{end}}
 
 	/*
-	 * 8-bit colors
+	 * 8-bit colors for background colors
 	 */
 {{range .Colors}}
-	// {{.Name}} for background color: HTML Hex Color Code {{.HtmlHexColorCode}}, Ansi 8-bit Color Code {{.AnsiColorCode}}
+	// {{.Name}} for background color: HTML Hex Color Code {{.HtmlHexColorCode}}, Ansi 8-bit Color Index {{.AnsiColorCode}}
 	{{.Name}}Background
 {{end}}
 )
@@ -181,13 +181,13 @@ var backgroundColorNames = []string{
 	"Default",
 
 	/*
-	 * system colors
+	 * system colors for background colors
 	 */
 {{range .BackgroundSystemColors}}
 	"System{{.Name}}",{{end}}
 
 	/*
-	 * 8-bit colors
+	 * 8-bit colors for background colors
 	 */
 {{range .Colors}}
 	"{{.Name}}",{{end}}
@@ -198,13 +198,13 @@ var backgroundColorParameters = [...]string{
 	DefaultBackground: "49",
 
 	/*
-	 * system colors
+	 * system colors for background colors
 	 */
 {{range .BackgroundSystemColors}}
 	System{{.Name}}Background: "{{.AnsiColorCode}}",{{end}}
 
 	/*
-	 * 8-bit colors
+	 * 8-bit colors for background colors
 	 */
 {{range .Colors}}
 	{{.Name}}Background: "48;5;{{.AnsiColorCode}}",{{end}}
