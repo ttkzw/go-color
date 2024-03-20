@@ -15,7 +15,7 @@ import (
 	"github.com/mattn/go-isatty"
 )
 
-const Version = "0.4.0"
+const Version = "0.4.1"
 
 const (
 	// csi is CONTROL SEQUENCE INTRODUCER (CSI), "ESC [".
