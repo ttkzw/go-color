@@ -30,10 +30,10 @@ const (
 
 var terminalDetection = true
 
-// Color is a color for output.
+// Color is a color that handles ANSI escape sequences.
 type Color int
 
-// NewColor creates the Color.
+// NewColor creates a Color.
 func NewColor(name string) (Color, error) {
 	for i, v := range colorNames {
 		if strings.EqualFold(v, name) {
@@ -60,7 +60,7 @@ func (c Color) escapeSequence() string {
 	return strings.Join([]string{csi, c.parameter(), sgr_end_char}, "")
 }
 
-// Colorize colors the string with the foreground color.
+// Colorize returns the string with the foreground color.
 func (c Color) Colorize(str string) string {
 	if terminalDetection && !isatty.IsTerminal(os.Stdout.Fd()) {
 		return str
@@ -71,7 +71,7 @@ func (c Color) Colorize(str string) string {
 // BackgroundColor is a background color for output.
 type BackgroundColor int
 
-// NewBackgroundColor creates the BackgroundColor.
+// NewBackgroundColor creates a BackgroundColor.
 func NewBackgroundColor(name string) (BackgroundColor, error) {
 	for i, v := range backgroundColorNames {
 		if strings.EqualFold(v, name) {
@@ -98,7 +98,7 @@ func (c BackgroundColor) escapeSequence() string {
 	return strings.Join([]string{csi, c.parameter(), sgr_end_char}, "")
 }
 
-// Colorize colors the string with the background color.
+// Colorize returns the string with the background color.
 func (c BackgroundColor) Colorize(str string) string {
 	if terminalDetection && !isatty.IsTerminal(os.Stdout.Fd()) {
 		return str
@@ -118,17 +118,17 @@ func SupportedColors() []Color {
 	return colors
 }
 
-// ColorizeForeground colors the string with the foreground color.
+// ColorizeForeground returns the string with the foreground color.
 func ColorizeForeground(str string, foreground Color) string {
 	return foreground.Colorize(str)
 }
 
-// ColorizeBackground colors the string with the background color.
+// ColorizeBackground returns the string with the background color.
 func ColorizeBackground(str string, background BackgroundColor) string {
 	return background.Colorize(str)
 }
 
-// Colorize colors the string　with foreground and background colors.
+// Colorize returns the string　with foreground and background colors.
 func Colorize(str string, foreground Color, background BackgroundColor) string {
 	if terminalDetection && !isatty.IsTerminal(os.Stdout.Fd()) {
 		return str
